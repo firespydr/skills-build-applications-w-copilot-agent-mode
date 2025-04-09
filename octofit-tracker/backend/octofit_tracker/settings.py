@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-tt9ho1pu#2#83ty&ln8b3!v7t*lrmljiy5%tno1934tatd127!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["ideal-space-waddle-rqpx6v65pw3xvvg-8000.app.github.dev", "localhost"]
 
 
 # Application definition
