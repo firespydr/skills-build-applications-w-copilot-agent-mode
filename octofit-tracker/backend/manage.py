@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/workspaces/skills-build-applications-w-copilot-agent-mode/venv/bin/python3
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
