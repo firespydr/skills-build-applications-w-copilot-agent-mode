@@ -6,7 +6,7 @@ from datetime import timedelta
 from bson import ObjectId
 
 class Command(BaseCommand):
-    help = 'Populate the database with test data for users, teams, activities, leaderboard, and workouts'
+    help = 'Populate the database with test data for users, teams, activity, leaderboard, and workouts'
 
     def handle(self, *args, **kwargs):
         # Connect to MongoDB
@@ -16,7 +16,7 @@ class Command(BaseCommand):
         # Drop existing collections
         db.users.drop()
         db.teams.drop()
-        db.activities.drop()
+        db.activity.drop()
         db.leaderboard.drop()
         db.workouts.drop()
 
@@ -25,21 +25,15 @@ class Command(BaseCommand):
             User(_id=ObjectId(), username='thundergod', email='thundergod@mhigh.edu', password='thundergodpassword'),
             User(_id=ObjectId(), username='metalgeek', email='metalgeek@mhigh.edu', password='metalgeekpassword'),
             User(_id=ObjectId(), username='zerocool', email='zerocool@mhigh.edu', password='zerocoolpassword'),
-            User(_id=ObjectId(), username='crashoverride', email='crashoverride@mhigh.edu', password='crashoverridepassword'),
+            User(_id=ObjectId(), username='crashoverride', email='crashoverride@hmhigh.edu', password='crashoverridepassword'),
             User(_id=ObjectId(), username='sleeptoken', email='sleeptoken@mhigh.edu', password='sleeptokenpassword'),
         ]
         User.objects.bulk_create(users)
 
         # Create teams
-        teams = [
-            Team(_id=ObjectId(), name='Blue Team'),
-            Team(_id=ObjectId(), name='Gold Team'),
-        ]
-        Team.objects.bulk_create(teams)
-
-        # Assign users to teams
-        for team in teams:
-            team.members.set(users)
+        team = Team(_id=ObjectId(), name='Blue Team')
+        team.save()
+        team.members.add(*users)
 
         # Create activities
         activities = [

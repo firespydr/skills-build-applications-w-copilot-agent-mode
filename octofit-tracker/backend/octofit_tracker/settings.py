@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "tracker",
-    "corsheaders",
+    "octofit_tracker",
+    "octofit_tracker_tracker",
 ]
 
 MIDDLEWARE = [
