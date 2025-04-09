@@ -66,3 +66,4 @@ class Command(BaseCommand):
         Workout.objects.bulk_create(workouts)
 
         self.stdout.write(self.style.SUCCESS('Successfully populated the database with test data.'))
+        #test
